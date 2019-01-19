@@ -8,7 +8,12 @@ export default new Router({
     {
       path: '/',
       name: 'landing-page',
-      component: require('@/components/LandingPage').default,
+      component: require('@/components/TodosPage').default,
+    },
+    {
+      path: '/todos',
+      name: 'todos',
+      component: require('@/components/TodosPage').default,
     },
     {
       path: '*',

@@ -1,4 +1,5 @@
-import { app, BrowserWindow } from 'electron' // eslint-disable-line
+import { app, BrowserWindow, ipcMain } from 'electron' // eslint-disable-line
+import DataStore from '../renderer/DataStore'
 
 /**
  * Set `__static` path to static files in production
@@ -42,6 +43,13 @@ app.on('activate', () => {
   if (mainWindow === null) {
     createWindow()
   }
+})
+
+const todos = new DataStore({ name: 'todos-db' })
+
+ipcMain.on('add-todo', (event, data) => {
+  const dt = todos.addTodo(data)
+  event.sender.send('todo-list', dt.todos)
 })
 
 /**

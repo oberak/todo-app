@@ -24,6 +24,8 @@ module.exports = {
     'import/newline-after-import': 0,
     'no-multi-assign': 0,
     'semi': ["error", "never"],
+    'import/no-extraneous-dependencies': 0,
+    'func-names': 0,
     // allow debugger during development
     'no-debugger': process.env.NODE_ENV === 'production' ? 2 : 0
   }
