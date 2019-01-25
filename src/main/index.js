@@ -52,6 +52,11 @@ ipcMain.on('add-todo', (event, data) => {
   event.sender.send('todo-list', dt.todos)
 })
 
+ipcMain.on('todo-list', (event) => {
+  const dt = todos.getTodos()
+  event.returnValue = dt.todos
+})
+
 /**
  * Auto Updater
  *
